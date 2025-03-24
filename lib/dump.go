@@ -10,10 +10,11 @@ import (
 	"net/url"
 	"os"
 	"time"
+    "strings"
 )
 
 type DumpCommand struct {
-	Index        string    `required help:"Index filter" short:"i"`
+    Index        []string  `required help:"Index filter" short:"i"`
 	QueryString  string    `help:"Query string to filter results" short:"q"`
 	Size         string    `help:"Bulk size" default:"100" short:"s"`
 	OutputFile   string    `help:"Output file" short:"o"`
