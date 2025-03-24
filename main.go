@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/LeakIX/estk/lib"
+	"github.com/lager1/estk/lib"
 	"github.com/alecthomas/kong"
 	"io/ioutil"
 	"log"

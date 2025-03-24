@@ -1,4 +1,4 @@
-module github.com/LeakIX/estk
+module github.com/lager1/estk
 
 go 1.17
 
