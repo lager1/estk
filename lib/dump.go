@@ -42,10 +42,12 @@ func (cmd *DumpCommand) Run(dispatcher *EsQueryDispatcher) (err error) {
 	jsonEncoder := json.NewEncoder(cmd.OutputWriter)
 
 	if cmd.ScrollId == "" {
-		scrollUrl := "/" + cmd.Index + "/_search?scroll=24h"
-		if len(cmd.QueryString) > 0 {
-			scrollUrl += "&q=" + url.QueryEscape(cmd.QueryString)
-		}
+        indexFilter := ""
+        if len(cmd.Index) > 0 {
+            indexFilter = "/" + url.PathEscape(strings.Join(cmd.Index, ",")) + "/"
+        } else {
+            indexFilter = "/"
+        }
 		scrollRequest := &ScrollRequest{
 			Size: cmd.Size,
 			Sort: "_doc",
